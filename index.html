@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Pluggable Transports : Obfuscation collaboration web presence" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Pluggable Transports</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/obfuscation">View on GitHub</a>
+
+          <h1 id="project_title">Pluggable Transports</h1>
+          <h2 id="project_tagline">Obfuscation collaboration web presence</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<p>This repository is a cross-project collaboration space for censorship circumvention tools.
+Our initial focus is expanding Tor's <a href="https://gitweb.torproject.org/torspec.git/blob/HEAD:/pt-spec.txt">pluggable transports</a> work to easily
+work in a wider variety of circumvention tools. Initial collaborators include <a href="http://getlantern.org">Lantern</a>,
+<a href="https://s3.amazonaws.com/0ubz-2q11-gi9y/en.html">Psiphon</a>, <a href="https://www.torproject.org/">Tor</a> and 
+<a href="https://www.google.com/ideas/projects/uproxy/">uProxy</a>.</p>
+
+<h1>
+<a name="collaboration" class="anchor" href="#collaboration"><span class="octicon octicon-link"></span></a>Collaboration</h1>
+
+<p>There are two main collaboration spaces:</p>
+
+<p><strong>Mailing List</strong>: <a href="https://groups.google.com/forum/?hl=en#!forum/traffic-obf">Our Google Group</a></p>
+
+<p><strong>IRC Meeting</strong>: The Pluggable Transports community conducts biweekly IRC meetings. You can 
+find us in #tor-dev at the OFTC network <a href="https://www.google.com/calendar/embed?src=dt92shou5q1ooe1kptubhclo4s%40group.calendar.google.com">every second friday</a> at 
+<a href="http://www.timeanddate.com/worldclock/fixedtime.html?hour=16&amp;min=00&amp;sec=0p1=0">16:00 UTC</a>.</p>
+
+<h1>
+<a name="goals" class="anchor" href="#goals"><span class="octicon octicon-link"></span></a>Goals</h1>
+
+<p>We hope to get to refactor Tor's Pluggable Transport specification in to a core specification that
+can be used by a variety of circumvention tools. Each tool can then write up their own project-specific
+specification for how to make a pluggable transport work with its internal infrastructure.</p>
+
+<h1>
+<a name="what-is-a-pluggable-transport" class="anchor" href="#what-is-a-pluggable-transport"><span class="octicon octicon-link"></span></a>What is a Pluggable Transport?</h1>
+
+<p>Pluggable Transports were defined by Tor, but some (FTEProxy, Meek) have already been adapted to 
+other tools (Lantern, Psiphon. They are:</p>
+
+<ul>
+<li><p>Standalone processes that accept traffic from a client and route it to a server</p></li>
+<li><p>Require client and server-side processes that know how to talk to each other</p></li>
+<li><p>Are aimed at obfuscating traffic so that censors can't tell it's coming from a circumvention tool. </p></li>
+</ul><p>The obfuscation is the hard part, and as long as it's built using fairly generic interfaces (the way that fteproxy is), it can be reused quite easily across projects, even though their mechanisms for managing and communicating with pluggable transports are different.</p>
+
+<h1>
+<a name="pluggable-transport-integrations" class="anchor" href="#pluggable-transport-integrations"><span class="octicon octicon-link"></span></a>Pluggable Transport Integrations</h1>
+
+<table>
+<thead><tr>
+<th>Transports</th>
+<th align="right">Support in</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><a href="https://gitweb.torproject.org/pluggable-transports/obfsproxy.git/blob/HEAD:/doc/obfs2/obfs2-protocol-spec.txt">obfs2</a></td>
+<td align="right"><a href="https://www.torproject.org/">Tor</a></td>
+</tr>
+<tr>
+<td><a href="https://gitweb.torproject.org/pluggable-transports/obfsproxy.git/blob/HEAD:/doc/obfs3/obfs3-protocol-spec.txt">obfs3</a></td>
+<td align="right">
+<a href="https://www.torproject.org/">Tor</a>, <a href="http://getlantern.org">Lantern</a>
+</td>
+</tr>
+<tr>
+<td><a href="https://fteproxy.org/">FTE</a></td>
+<td align="right"><a href="https://www.torproject.org/">Tor</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cs.kau.se/philwint/scramblesuit/">scramblesuit</a></td>
+<td align="right"><a href="https://www.torproject.org/">Tor</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/brl/obfuscated-openssh/blob/master/README.obfuscation">obfuscatedssh</a></td>
+<td align="right"><a href="https://psiphon.ca/">Psiphon</a></td>
+</tr>
+<tr>
+<td><a href="https://trac.torproject.org/projects/tor/wiki/doc/meek">meek</a></td>
+<td align="right">
+<a href="https://www.torproject.org/">Tor</a>,  <a href="https://psiphon.ca/">Psiphon</a>
+</td>
+</tr>
+<tr>
+<td><a href="https://crypto.stanford.edu/flashproxy/">flashproxy</a></td>
+<td align="right"><a href="https://www.torproject.org/">Tor</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/uProxy/socks-rtc">socks-rtc</a></td>
+<td align="right"><a href="https://www.google.com/ideas/projects/uproxy/">uProxy</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/getlantern/flashlight">flashlight</a></td>
+<td align="right"><a href="https://www.getlantern.org/">Lantern</a></td>
+</tr>
+</tbody>
+</table><h1>
+<a name="tors-pt-links" class="anchor" href="#tors-pt-links"><span class="octicon octicon-link"></span></a>Tor's PT links:</h1>
+
+<p><a href="https://gitweb.torproject.org/torspec.git/blob/HEAD:/pt-spec.txt">pt-spec.txt</a></p>
+
+<p><a href="https://gitweb.torproject.org/torspec.git/blob/HEAD:/proposals/196-transport-control-ports.txt">Extended ORPort</a></p>
+
+<p><a href="https://gitweb.torproject.org/torspec.git/blob/HEAD:/proposals/217-ext-orport-auth.txt">Extended ORPort authentication</a></p>
+
+<p>Also:
+<a href="https://www.torproject.org/docs/pluggable-transports">https://www.torproject.org/docs/pluggable-transports</a>
+<a href="https://trac.torproject.org/projects/tor/wiki/doc/PluggableTransports">https://trac.torproject.org/projects/tor/wiki/doc/PluggableTransports</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
